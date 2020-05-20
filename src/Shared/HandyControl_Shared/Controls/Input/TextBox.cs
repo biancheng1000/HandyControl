@@ -25,7 +25,34 @@ namespace HandyControl.Controls
             VerifyData();
         }
 
-        public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
+
+        /// <summary>
+        /// 将过滤条件定义为依赖属性，就可以通过绑定的方式来进行扩展了 
+        /// </summary>
+        public static readonly DependencyProperty VerifyFuncProperty = DependencyProperty.Register("VerifyFunc", typeof(Func<string, OperationResult<bool>>), typeof(TextBox), new PropertyMetadata(null));
+
+        public Func<string, OperationResult<bool>> VerifyFunc
+        {
+            get => (Func<string, OperationResult<bool>>)GetValue(VerifyFuncProperty);
+            set => SetValue(VerifyFuncProperty, value);
+        }
+
+
+        /// <summary>
+        /// 这是一个简单的测试
+        /// </summary>
+        public static readonly DependencyProperty TestProperty = DependencyProperty.Register(
+            "Test", typeof(bool), typeof(TextBox), new PropertyMetadata(false));
+
+        /// <summary>
+        /// 简单的测试程序
+        /// </summary>
+        public bool Test
+        {
+            get => (bool)GetValue(TestProperty);
+            set => SetValue(TestProperty, value);
+        }
+
 
         /// <summary>
         ///     数据是否错误
