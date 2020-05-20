@@ -150,7 +150,7 @@ namespace HandyControl.Controls
         /// <summary>
         /// 将过滤条件定义为依赖属性，就可以通过绑定的方式来进行扩展了 
         /// </summary>
-        public static readonly DependencyProperty VerifyFuncProperty = DependencyProperty.Register("VerifyFunc", typeof(Func<string, OperationResult<bool>>), typeof(TextBox), new PropertyMetadata(null));
+        public static readonly DependencyProperty VerifyFuncProperty = DependencyProperty.Register("VerifyFunc", typeof(Func<string, OperationResult<bool>>), typeof(ComboBox), new PropertyMetadata(null));
 
         public Func<string, OperationResult<bool>> VerifyFunc
         {
